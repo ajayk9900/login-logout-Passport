@@ -10,9 +10,7 @@ const session = require('express-session');
 const passport = require('passport')
 const passportLocal = require('./config/passportLocal');
 
-const connectFlash = require('connect-flash');
-const customFlash = require('./config/customFlash');
-app.use(connectFlash());
+
 
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
@@ -36,7 +34,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuth);
-app.use(customFlash.setFlash);
 
 app.use('/admin', require('./routes/admin'));
 

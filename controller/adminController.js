@@ -30,7 +30,6 @@ module.exports.signIn = async (req, res) => {
         console.log(req.cookies.captchaCode);
         if (req.cookies.captchaCode == req.body.captcha) {
             console.log('captch match');
-            req.flashMsg('success', 'Login Successfully..');
             return res.redirect('/admin/dashboard');
         }
         else {
